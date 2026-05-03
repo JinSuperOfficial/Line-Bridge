@@ -10,11 +10,7 @@ class Renderer:
         self.line_color = (130, 220, 255)
         self.text_color = (238, 238, 238)
         self.flash = 0
-        # 某些 Windows + Store Python 环境下 SysFont 会被系统字体注册表异常数据触发崩溃
-        # 使用 pygame 内置默认字体，稳定跨平台~
-        if not pygame.font.get_init():
-            pygame.font.init()
-        self.font = pygame.font.Font(None, 28)
+        self.font = pygame.font.SysFont("consolas", 22)
 
     def draw_grid(self, origin: Tuple[int, int], cell: int, size: int) -> None:
         for i in range(size):
